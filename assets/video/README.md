@@ -1,11 +1,11 @@
 # Warehouse video
 
-Put the clip here as `warehouse.mp4`. The video section on the home page appears automatically once this file exists. If the file is missing, the section stays hidden.
+`warehouse.mp4` (H.264) and `warehouse.webm` (VP9) are the same 16 second clip, muted, 1280 x 720. `warehouse-poster.jpg` shows while it loads. If the video files are missing, the home page video section stays hidden.
 
-Good clip: 10 to 30 seconds, landscape, no sound needed, 1280 x 720 or 1920 x 1080, under about 8 MB.
+The clip is cut from three Pexels stock videos (14910119, 15762361 and 15762450): an aisle walk, a pass along carton shelving and a worker scanning cartons, joined with short crossfades.
 
-Free sources whose licenses allow use on a business site: Pexels, Pixabay, Mixkit, Coverr. Useful searches: "warehouse forklift", "pallet racking", "packing boxes", "conveyor boxes", "fulfillment center".
+To replace it with your own footage, export a new `warehouse.mp4` and make the WebM and poster from it (needs ffmpeg):
 
-To shrink a large file (needs ffmpeg):
-
-    ffmpeg -i input.mp4 -t 25 -an -vf "scale=1280:-2" -c:v libx264 -crf 28 -preset slow -movflags +faststart warehouse.mp4
+    ffmpeg -i input.mp4 -t 20 -an -vf "scale=1280:-2" -c:v libx264 -crf 27 -preset slow -movflags +faststart warehouse.mp4
+    ffmpeg -i warehouse.mp4 -c:v libvpx-vp9 -crf 38 -b:v 0 -an warehouse.webm
+    ffmpeg -ss 0.5 -i warehouse.mp4 -frames:v 1 -q:v 4 warehouse-poster.jpg

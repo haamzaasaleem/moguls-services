@@ -227,12 +227,13 @@
   </div>
 </section>
 
-<!-- Warehouse video. Add assets/video/warehouse.mp4 and this section appears; without the file it stays hidden. -->
+<!-- Warehouse video. If assets/video/warehouse.mp4 is missing, this section stays hidden. -->
 <section class="video-band is-pending" data-video>
   <div class="wrap">
     <div class="video-frame">
-      <video muted loop playsinline preload="metadata" aria-label="Footage from inside a warehouse">
+      <video muted loop playsinline preload="metadata" poster="assets/video/warehouse-poster.jpg" aria-label="Footage from inside a warehouse">
         <source src="assets/video/warehouse.mp4" type="video/mp4">
+        <source src="assets/video/warehouse.webm" type="video/webm">
       </video>
       <div class="video-caption">
         <div class="tag">Inside the warehouse</div>
