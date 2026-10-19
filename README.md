@@ -33,6 +33,10 @@ WFS prep and pallet storage have no price yet. Leave a price empty and the site 
 
 The quote form, bundle form and calculator all post to `api/send.php`. That script emails the submission to `quoteRecipient` from `data/settings.json`, with the customer's address set as Reply To. It uses PHP `mail()`, which most shared hosts support. Set `MM_FROM_EMAIL` in `api/config.php` (or in `config.local.php`) to an address on your own domain so the messages don't go to spam.
 
+## Warehouse video
+
+The home page has a video section that stays hidden until `assets/video/warehouse.mp4` exists. See `assets/video/README.md` for where to get a clip and how to compress it. The clip plays muted on a loop, only while it is on screen, and has a pause button.
+
 ## Run locally
 
 ```
