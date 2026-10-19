@@ -145,6 +145,33 @@
     });
   }
 
+  /* ---------- loading screen: first page of a visit only ---------- */
+  function loader() {
+    var box = document.getElementById("loader");
+    if (!box) return;
+    if (document.documentElement.classList.contains("no-loader")) {
+      box.remove();
+      return;
+    }
+    var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var minShow = still ? 500 : 3000; // long enough to see the crane set one carton down
+    var hidden = false;
+    function hide() {
+      if (hidden) return;
+      hidden = true;
+      box.classList.add("done");
+      try { sessionStorage.setItem("mm_seen", "1"); } catch (e) {}
+      setTimeout(function () { box.remove(); }, 600);
+    }
+    function whenLoaded() {
+      setTimeout(hide, Math.max(0, minShow - performance.now()));
+    }
+    if (document.readyState === "complete") whenLoaded();
+    else window.addEventListener("load", whenLoaded);
+    setTimeout(hide, 7000);
+    box.addEventListener("click", hide);
+  }
+
   /* ---------- menu ---------- */
   function menu() {
     var btn = document.querySelector(".menu-btn");
@@ -239,6 +266,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    loader();
     menu();
     reveal();
     tilt();
