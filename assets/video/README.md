@@ -1,8 +1,8 @@
 # Warehouse video
 
-`warehouse.mp4` (H.264) and `warehouse.webm` (VP9) are the same 16 second clip, muted, 1280 x 720. `warehouse-poster.jpg` shows while it loads. If the video files are missing, the home page video section stays hidden.
+`warehouse.mp4` (H.264) and `warehouse.webm` (VP9) are the same 16 second clip, muted, 1600 x 900. `warehouse-poster.jpg` shows while it loads. If the video files are missing, the home page video section stays hidden.
 
-The clip is cut from three Pexels stock videos (14910119, 15762361 and 15762450): an aisle walk, a pass along carton shelving and a worker scanning cartons, joined with short crossfades.
+The clip is cut from two Pexels stock videos (4292300 and 4292902): a worker walking into a racking aisle, then a close shot of a worker scanning stock with a handheld scanner and tablet, joined with a crossfade.
 
 To replace it with your own footage, export a new `warehouse.mp4` and make the WebM and poster from it (needs ffmpeg):
 

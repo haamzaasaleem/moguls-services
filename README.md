@@ -35,7 +35,7 @@ The quote form, bundle form and calculator all post to `api/send.php`. That scri
 
 ## Warehouse video
 
-The home page shows a 16 second warehouse clip made from three Pexels stock videos. See `assets/video/README.md` for how to swap in your own footage. The clip plays muted on a loop, only while it is on screen, and has a pause button.
+The home page shows a 16 second warehouse clip made from two Pexels stock videos. See `assets/video/README.md` for how to swap in your own footage. The clip plays muted on a loop, only while it is on screen, and has a pause button.
 
 ## Run locally
 
