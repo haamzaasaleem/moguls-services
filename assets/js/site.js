@@ -172,7 +172,7 @@
     box.addEventListener("click", hide);
   }
 
-  /* ---------- warehouse video: shown only once the file loads ---------- */
+  /* ---------- warehouse video: removed if the file cannot be played ---------- */
   function video() {
     document.querySelectorAll("[data-video]").forEach(function (band) {
       var v = band.querySelector("video");
@@ -184,9 +184,6 @@
       function missing() { band.remove(); }
       if (v.networkState === 3) return missing(); // no playable source
       if (sources.length) sources[sources.length - 1].addEventListener("error", missing);
-      function show() { band.classList.remove("is-pending"); }
-      if (v.readyState >= 1) show(); // metadata may already be in before this runs
-      else v.addEventListener("loadedmetadata", show, { once: true });
 
       function label() { btn.textContent = v.paused ? "Play" : "Pause"; }
       v.addEventListener("play", label);
