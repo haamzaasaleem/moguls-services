@@ -678,3 +678,22 @@ html.no-loader .loader { display: none; }
 @keyframes ldPick { 0%, 19.9% { opacity: 1; } 20%, 94% { opacity: 0; } 100% { opacity: 1; } }
 @keyframes ldDrop { 0%, 79.9% { opacity: 0; } 80%, 92% { opacity: 1; } 98%, 100% { opacity: 0; } }
 @keyframes ldShadow { 0%, 22% { opacity: 0; } 38%, 64% { opacity: .2; } 76%, 100% { opacity: 0; } }
+
+/* ---------- courier logos ---------- */
+.carriers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 2px solid var(--ink);
+}
+.carriers li { display: grid; place-items: center; min-height: 104px; padding: 18px 14px; background: var(--white); }
+.carriers img { width: 110px; height: 42px; object-fit: contain; transition: transform .2s ease; }
+.carriers img[alt="UPS"] { height: 50px; }
+.carriers li:hover img { transform: translateY(-3px); }
+.carriers .more { font-family: var(--f-mono); font-size: 12.5px; text-align: center; color: var(--ink-soft); line-height: 1.4; }
+.price-block .carriers { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 760px) { .carriers { grid-template-columns: repeat(3, 1fr); } .carriers img { width: 84px; height: 34px; } }
