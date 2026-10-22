@@ -199,9 +199,21 @@
         <a class="btn ghost" href="quote.html">Get a Quote</a>
       </div>
     </div>
-    <div class="stage bundle-stage" data-scene="bundle">
-      <button class="bundle-toggle" type="button">Build the pack</button>
-      <div class="world" aria-hidden="true"></div>
+    <div class="pack-media">
+      <!-- Grocery pack video. Add assets/video/grocery-pack.mp4 and it replaces the 3D pack below. -->
+      <div class="video-band pack-video" data-video>
+        <div class="video-frame">
+          <video muted loop playsinline preload="metadata" aria-label="Grocery items being packed into variety packs">
+            <source src="assets/video/grocery-pack.mp4" type="video/mp4">
+            <source src="assets/video/grocery-pack.webm" type="video/webm">
+          </video>
+          <button class="video-toggle" type="button">Pause</button>
+        </div>
+      </div>
+      <div class="stage bundle-stage media-fallback" data-scene="bundle">
+        <button class="bundle-toggle" type="button">Build the pack</button>
+        <div class="world" aria-hidden="true"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -222,12 +234,13 @@
       <table class="rate" data-table="bundles">
         <thead><tr><th>Items in the pack</th><th>Price per pack</th></tr></thead>
         <tbody>
-          <tr><td>2 items</td><td class="p">$0.90</td></tr>
-          <tr><td>3 to 4 items</td><td class="p">$1.25</td></tr>
-          <tr><td>5 to 6 items</td><td class="p">$1.60</td></tr>
+          <tr><td>2 items</td><td class="p">$2.50 + $0.90</td></tr>
+          <tr><td>3 to 4 items</td><td class="p">$2.50 + $1.25</td></tr>
+          <tr><td>5 to 6 items</td><td class="p">$2.50 + $1.60</td></tr>
           <tr><td>7 or more items</td><td class="p"><a href="quote.html">Custom quote</a></td></tr>
         </tbody>
       </table>
+      <p class="fine" data-text="bundleBase.note"></p>
       <p class="fine">Packaging materials depend on the pack and are listed on your quote.</p>
     </div>
   </div>

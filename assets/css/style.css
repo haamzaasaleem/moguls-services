@@ -736,3 +736,7 @@ html.no-loader .loader { display: none; }
   cursor: pointer;
 }
 @media (max-width: 620px) { .video-frame { aspect-ratio: 4 / 3; } }
+
+/* variety pack page: video takes the 3D pack's place when the clip exists */
+.video-band.pack-video { padding: 0; }
+.pack-media:has([data-video]) .media-fallback { display: none; }

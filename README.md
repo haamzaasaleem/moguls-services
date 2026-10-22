@@ -27,7 +27,7 @@ You can edit them at `/admin.html`. The admin is protected by a password:
 2. Make sure PHP can write to the `data/` folder.
 3. Open `/admin.html`, enter the password, edit and save.
 
-WFS prep and pallet storage have no price yet. Leave a price empty and the site shows "Price coming soon". When you type in a price, it shows everywhere.
+Leave any price empty and the site shows "Price coming soon" or "Custom quote" in its place. Variety packs show as base price plus building fee (for example $2.50 + $0.90); both parts are editable in the admin.
 
 ## Form emails
 
@@ -35,7 +35,7 @@ The quote form, bundle form and calculator all post to `api/send.php`. That scri
 
 ## Warehouse video
 
-The home page shows a 16 second warehouse clip made from two Pexels stock videos. See `assets/video/README.md` for how to swap in your own footage. The clip plays muted on a loop, only while it is on screen, and has a pause button.
+The home page shows a 16 second warehouse clip made from two Pexels stock videos. See `assets/video/README.md` for how to swap in your own footage. The clip plays muted on a loop, only while it is on screen, and has a pause button. The Variety Packs page has a second video slot (`assets/video/grocery-pack.mp4`); until that file exists, the page shows the 3D pack animation instead.
 
 ## Run locally
 

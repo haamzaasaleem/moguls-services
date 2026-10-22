@@ -119,7 +119,14 @@
       ["extraItem", "Each extra ($)", "number"]
     ], { label: "", min: 0, max: null, firstItem: null, extraItem: null });
 
-    g = fieldset("Variety pack and bundle building", "Price per finished pack. Leave price empty to show \"Custom quote\".");
+    if (!p.bundleBase) p.bundleBase = { perPack: null, note: "" };
+    g = fieldset("Variety pack base price", "Added to every variety pack, so a 2 item pack shows as base + building fee. Leave empty to show the building fee alone.");
+    two = el("div", { class: "grid2" });
+    two.appendChild(field("Base price per pack ($)", p.bundleBase, "perPack", "number"));
+    two.appendChild(field("Note shown under the bundle table", p.bundleBase, "note"));
+    g.appendChild(two);
+
+    g = fieldset("Variety pack building fee", "Fee per finished pack by number of items, added to the base price. Leave price empty to show \"Custom quote\".");
     rows(g, p.bundleTiers, [
       ["label", "Label shown", "text"],
       ["min", "Min items", "number"],

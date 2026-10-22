@@ -9,3 +9,7 @@ To replace it with your own footage, export a new `warehouse.mp4` and make the W
     ffmpeg -i input.mp4 -t 20 -an -vf "scale=1280:-2" -c:v libx264 -crf 27 -preset slow -movflags +faststart warehouse.mp4
     ffmpeg -i warehouse.mp4 -c:v libvpx-vp9 -crf 38 -b:v 0 -an warehouse.webm
     ffmpeg -ss 0.5 -i warehouse.mp4 -frames:v 1 -q:v 4 warehouse-poster.jpg
+
+## Grocery pack video (Variety Packs page)
+
+Save a clip of grocery or snack items being packed as `grocery-pack.mp4`, plus `grocery-pack.webm` made with the same commands as above. Once the MP4 is here it replaces the 3D pack animation at the top of the Variety Packs page.

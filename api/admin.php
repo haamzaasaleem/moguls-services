@@ -49,6 +49,10 @@ $prices = [
         'twoPackAdd' => mm_num($p['fnsku']['twoPackAdd'] ?? null),
     ],
     'fulfillmentTiers' => [],
+    'bundleBase' => [
+        'perPack' => mm_num($p['bundleBase']['perPack'] ?? null),
+        'note' => mm_str($p['bundleBase']['note'] ?? ''),
+    ],
     'bundleTiers' => [],
     'wfsPrep' => [
         'perItem' => mm_num($p['wfsPrep']['perItem'] ?? null),

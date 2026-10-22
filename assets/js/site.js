@@ -33,9 +33,18 @@
     };
     return {
       twoPack: p.fnsku ? Number(p.fnsku.perItem) + Number(p.fnsku.twoPackAdd) : null,
-      fbmFrom: min(tiers, "firstItem"),
+      // standard per order rate: the first tier, not the high volume discount
+      fbmFrom: tiers.length ? Number(tiers[0].firstItem) : null,
       bundleFrom: min(bundles, "price")
     };
+  };
+
+  // Variety pack price as shown to customers: base + building fee, e.g. "$2.50 + $0.90".
+  MM.bundleText = function (fee) {
+    var base = MM.prices && MM.prices.bundleBase ? MM.money(MM.prices.bundleBase.perPack) : null;
+    var f = MM.money(fee);
+    if (!f) return null;
+    return base ? base + " + " + f : f;
   };
 
   MM.ready = Promise.all([load("prices"), load("settings")]).then(function (res) {
@@ -65,6 +74,10 @@
         node.textContent = node.getAttribute("data-pending") || "Price coming soon";
         node.classList.add("pending");
       }
+    });
+    document.querySelectorAll("[data-bundle-from]").forEach(function (node) {
+      var t = MM.bundleText(MM.derived.bundleFrom);
+      if (t) node.textContent = t;
     });
     document.querySelectorAll("[data-text]").forEach(function (node) {
       var v = MM.get(MM.prices, node.getAttribute("data-text"));
@@ -103,7 +116,7 @@
         tr.appendChild(el("td", null, b.label));
         var td = el("td", "p");
         if (MM.money(b.price)) {
-          td.textContent = MM.money(b.price);
+          td.textContent = MM.bundleText(b.price);
         } else {
           var a = el("a", null, "Custom quote");
           a.href = "quote.html";

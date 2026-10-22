@@ -39,6 +39,8 @@
     } else if (n > 2) {
       var b = bundleFor(p.bundleTiers, n);
       if (!b || b.price == null) return { total: null, lines: lines.concat(line("Bundle of " + n, null)) };
+      var base = p.bundleBase && p.bundleBase.perPack != null ? Number(p.bundleBase.perPack) : 0;
+      if (base) lines.push(line("Pack base", base));
       lines.push(line("Bundle of " + n, Number(b.price)));
     }
     return { total: lines.reduce(function (s, l) { return s + l.amount; }, 0), lines: lines };
